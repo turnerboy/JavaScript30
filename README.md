@@ -1,3 +1,3 @@
-#✨Day 1✨
+#JavaScript30
 
-A JS Drum kit that can play notes with animation.f
+A 30 day Javascript workout🔥
