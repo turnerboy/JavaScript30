@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>✨Day 7✨ ~ Array Cardio 💪</title>
+</head>
+<body>
+    <h1>Array Cardio 💪💪</h1>
+    <p><em>You may enter the dev console. </em>💪🧐🔥</p>
+    <style>
+        h1{
+            font-size: 4em ;
+            font-family: 'helvetica neue'
+        }
+        h1{
+            font-family: 'helvetica neue'
+        }
+    </style>
+  <script>
+    // ## Array Cardio Day 2
+
+    const people = [
+      { name: 'Wes', year: 1988 },
+      { name: 'Kait', year: 1986 },
+      { name: 'Irv', year: 1970 },
+      { name: 'Lux', year: 2015 }
+    ];
+
+    const comments = [
+      { text: 'Love this!', id: 523423 },
+      { text: 'Super good', id: 823423 },
+      { text: 'You are the best', id: 2039842 },
+      { text: 'Ramen is my fav food ever', id: 123523 },
+      { text: 'Nice Nice Nice!', id: 542328 }
+    ];
+
+    // Some and Every Checks
+    // Array.prototype.some() // is at least one person 19 or older?
+    const isAdult = people.some(person => (new Date().getFullYear())-person.year >= 19)
+    console.info("Check if atleast one guy in 'people' is older than 19")
+    console.log(isAdult)
+    
+    // Array.prototype.every() // is everyone 19 or older?
+    const allAdult = people.every(person => (new Date().getFullYear())-person.year >= 19)
+    console.info("Check if every guy in 'people' is older than 19")
+    console.log(allAdult)
+
+    // Array.prototype.find()
+    // Find is like filter, but instead returns just the one you are looking for
+    // find the comment with the ID of 823423
+    const firstComment = comments.find(comment => (comment.id === 823423))
+    console.info("Find the comment with the ID of 823423")
+    console.log(firstComment)
+
+    // Array.prototype.findIndex()
+    // Find the comment with this ID
+    // delete the comment with the ID of 823423
+    comments.splice(comments.findIndex(comment => (comment.id === 823423)),1)
+    console.info("Delete the comment with the ID of 823423")
+    console.table(comments)
+
+  </script>
+</body>
+</html>
