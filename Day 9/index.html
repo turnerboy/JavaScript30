@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>✨Day 9✨ ~Console Tricks!</title>
+</head>
+<body>
+        <h1>Beyond Console.⽊ 👾</h1>
+        <p onClick="makeGreen()"><em>You may enter the dev console. </em>💪🧐🔥</p>
+        <style>
+            h1{
+                font-size: 4em ;
+                font-family: 'helvetica neue'
+            }
+            h1{
+                font-family: 'helvetica neue'
+            }
+        </style>
+
+  <script>
+    const dogs = [{ name: 'Edgar', age: 2 }, { name: 'Maya', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log("Normal Stuff")
+
+    // Interpolated
+    console.log("Interpolated %s","💩")
+
+    // Styled
+    console.log("%c Big guy","font-size:2em;")
+
+    // warning!
+    console.warn("Careful now")
+
+    // Error :|
+    console.error("I told you :P")
+
+    // Info
+    console.info("You know what I am saying")
+
+    // Testing
+    let hey = 'Hey this is library📖' 
+    console.assert(hey === 'People power',hey)
+
+    // clearing
+    // => uncomment this for unlimited fun// setInterval(() => console.clear(),1000)
+    
+
+    // Viewing DOM Elements
+    const p = document.querySelector('p')
+    console.dir(p)
+
+    // Grouping together
+    dogs.forEach(dog => {
+        console.groupCollapsed(`${dog.name}`)
+        console.log(`${dog.name} is ${dog.age*7} dog years old already`)
+        console.log('This is so sad. Can we hit the like button ?')
+        console.groupEnd()
+    })
+
+    // counting
+    for(let i=0; i<10; i++)
+    console.count("For => ")
+
+    // timing
+    fetch('https://swapi.co/api/people/?format=json')
+        .then(blob => blob.json())
+        .then(data => {
+            console.time('use the force')
+            console.table(data.results)
+        })
+    
+  </script>
+</body>
+</html>
