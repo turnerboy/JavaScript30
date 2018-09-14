@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>✨Day 14✨ ~ Property Workout 🏃‍</title>
+</head>
+<body>
+    <h1>Property Workout 🏃‍♂️</h1>
+    <p><em>You may enter the dev console. </em>💪🧐🔥</p>
+    <style>
+        h1 {
+            font-size: 4em;
+            font-family: 'helvetica neue'
+        }
+    
+        h1 {
+            font-family: 'helvetica neue'
+        }
+    </style>
+
+  <script>
+    // start with strings, numbers and booleans
+    let a = 'apple'
+    let b = 6411
+    let c = true
+
+    console.info("%c Reference vs Copy",style = 'font-size: 4em;')
+    
+    let apple = a+'pineapple'
+    let ball = b+641
+    let cat = !c
+
+    console.log(typeof apple,": ", apple,"&",a)
+    console.log(typeof ball,": ", ball,"&",b)
+    console.log(typeof cat,": ", cat,"&",c)
+    
+    
+    // Let's say we have an array and we want to make a copy of it.
+    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy']
+     
+    // You might think we can just do something like this: 
+    // >>>  arrayA = arrayB
+    
+    // however what happens when we update that array?
+    // >>>  It gets referenced instead of getting copied thereby affecting the original array values too
+    
+    // one way
+    let squad = players.slice();
+    [squad[0],squad[1]] = ["Mathew", "Melvin"]
+    console.log('array',": ", players,"&\n\t",squad)
+    
+    // or create a new array and concat the old one in
+    let swatCats = [].concat(players);
+    [swatCats[0],swatCats[1]] = ["Tom", "Oggy"]
+    console.log('array',": ", players,"&\n\t",swatCats)
+    
+    // or use the new ES6 Spread
+    let meeseeks = [...players];
+    [meeseeks[0],meeseeks[1]] = ["Rick", "Morty"]
+    console.log('array',": ", players,"&\n\t",meeseeks)
+    
+    // The same thing goes for objects, let's say we have a person object
+    
+    // with Objects
+    
+    let people ={
+        name: 'Alan Harper',
+        age: 90,
+        social: {
+            facebook : 'facebook.com',
+            instagram : 'instagram.com'
+        }
+    }
+    //Spread and Assign 
+    const stupid = {...people};
+    const idiot = Object.assign({},people)
+    
+    idiot.name = "Harper"
+    stupid.age = 18
+    
+    console.log(typeof people,": ", people,"&\n\t",idiot,"&\n\t",stupid)
+    
+
+
+    // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+
+  </script>
+
+</body>
+</html>
