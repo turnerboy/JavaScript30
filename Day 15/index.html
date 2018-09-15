@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>✨Day 15✨ ~ 楽LocalStorage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <img src="http://i1244.photobucket.com/albums/gg574/ichirakuramen/ICHIRAKULOG_zpszz0qtawi.png" alt=" photo ICHIRAKULOG_zpszz0qtawi.png">
+        
+    <div class="wrapper">
+        <h2>ラーメン一楽</h2>
+        <p></p>
+        <ul class="plates">
+            <li>Your order here...</li>
+        </ul>
+        <form class="add-items">
+            <input type="text" name="item" placeholder="Item Name" required>
+            <input type="submit" value="+ Add Item">
+        </form>
+    </div>
+
+    <script>
+        const addItems = document.querySelector('.add-items');
+        const itemsList = document.querySelector('.plates');
+
+        const items = JSON.parse(localStorage.getItem('items')) || [];
+        
+        function newItem(e){
+            // Prevent refresh on submit 
+            e.preventDefault()
+            // Grab value off text field 
+            const name = this.querySelector('[name=item]').value
+            const done = false
+            const item = {
+                name,
+                done,
+            }
+            // Load it onto the items array
+            items.push(item)
+            // Render it 
+            populateList(items,itemsList)
+            // Add it to local storage
+            localStorage.setItem('items',JSON.stringify(items))
+            // reset form
+            this.reset()
+        }
+        
+        //Inject input into HTML
+        function populateList(plates = [], platesList){
+            platesList.innerHTML =  plates.map((plate,i) => `
+            <li>
+                <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''}/>
+                <label for='item${i}'> ${plate.name}</lable>
+            </li>
+            `).join("")   
+        }
+
+        //Do localStorage
+        function toggle(e){
+            //narrow down on input
+            if(!(e.target).matches('input')) return
+            const index = e.target.dataset.index
+            items[index].done = !items[index].done
+            localStorage.setItem('items',JSON.stringify(items))
+        }
+
+        addItems.addEventListener('submit',newItem)
+        itemsList.addEventListener('click',toggle)
+
+        populateList(items,itemsList)
+
+
+    </script>
+
+
+</body>
+
+</html>
