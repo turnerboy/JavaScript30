@@ -50,7 +50,6 @@
     </ul>
 
     <script>
-        let arr = []
 
         const ul = document.querySelector('#bands')
         const main = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
@@ -67,15 +66,9 @@
             if (nameA > nameB)
                 return 1
             return 0
-        }).map(band => band.index)
+        }).map(band =>`<li>${main[band.index]}</li>`).join('')
 
-        for(i of bands){
-            arr.push(`<li>
-                        ${main[i]}
-                    </li>`)
-        }
-
-        ul.innerHTML = arr.join('')
+        ul.innerHTML = bands
 
 
     </script>
