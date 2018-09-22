@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>✨Day 19✨ ~ 📸Photobooth</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <p>✨Photobooth✨</p>
+  <div class="photobooth">
+    <div class="controls">
+      <button onClick="takePhoto()" class="button"><a class="text"></a></button>
+      <div class="rgb">
+        <div class="ghosting">
+          <input type="checkbox" name="ghost" id="ghosting">
+          <label for="ghosting"></label>
+        </div>
+        <div class="redshift">
+          <input type="radio" name="shift" id="redshift">
+          <label for="redshift"></label>
+        </div>
+        <div class="rgbshift">
+          <input type="radio" name="shift" id="rgbshift">
+          <label for="rgbshift"></label>
+        </div>
+      </div>
+    </div>
+
+    <canvas class="photo"></canvas>
+    <video class="player"></video>
+    <div class="strip"></div>
+  </div>
+
+  <audio class="snap" src="http://wesbos.com/demos/photobooth/snap.mp3" hidden></audio>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

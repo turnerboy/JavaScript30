@@ -1,0 +1,114 @@
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  background:url('https://i.ytimg.com/vi/cQNACPPGUA8/maxresdefault.jpg');
+}
+
+input{
+  display:  none;
+}
+
+p{
+  color: beige;
+  text-align: center;
+  margin: 0px;
+  font-family: 'Helvetica';
+  font-weight: bold;
+  font-size: 10em; 
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.controls,.rgb{
+  display: inline-flex
+}
+
+/* buttons */
+
+.ghosting input + label:before{
+  font-size: 10em;
+  content: '🙂';
+}
+.ghosting input:checked + label:before{
+  font-size: 10em;
+  content: '👻';
+}
+.redshift input + label:before{
+  font-size: 10em;
+  content: '🔘';
+}
+.redshift input:checked + label:before{
+  font-size: 10em;
+  content: '🌶';
+}
+.rgbshift input + label:before{
+  font-size: 10em;
+  content: '🔘';
+}
+.rgbshift input:checked + label:before{
+  font-size: 10em;
+  content: '🍭';
+}
+
+.button,.button::after{
+  font-size: 3em;
+  content: '📷';
+  border: none;
+  background: none;
+}
+
+.button,.button:active::after{
+  font-size: 3em;
+  content: '📸';
+  border: none;
+  background: none;
+}
+
+.photobooth {
+  background:white;
+  max-width:150rem;
+  margin: 2rem auto;
+  border-radius:2px;
+}
+
+/*clearfix*/
+.photobooth:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.photo {
+  width:100%;
+  float:left;
+}
+
+.player {
+  position: absolute;
+  top:20px;
+  right: 20px;
+  width:200px;
+}
+
+/*
+  Strip!
+*/
+
+.strip {
+  padding:2rem;
+}
+.strip img {
+  width:100px;
+  overflow-x: scroll;
+  padding:0.8rem 0.8rem 2.5rem 0.8rem;
+  box-shadow:0 0 3px rgba(0,0,0,0.2);
+  background:white;
+}
+
+.strip a:nth-child(5n+1) img { transform: rotate(10deg); }
+.strip a:nth-child(5n+2) img { transform: rotate(-2deg); }
+.strip a:nth-child(5n+3) img { transform: rotate(8deg); }
+.strip a:nth-child(5n+4) img { transform: rotate(-11deg); }
+.strip a:nth-child(5n+5) img { transform: rotate(12deg); }
