@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>✨Day 20✨ ~ JavaScript's Capture</title>
+</head>
+<body class="bod">
+    <header>Bubbling 🛁</header>
+  <h1>
+  </h1>
+  <div style="background-color: thistle;" class="one">
+    <div style="background-color:mistyrose;" class="two">
+      <div style="background-color:coral;" class="three">
+      </div>
+    </div>
+  </div> 
+
+<style>
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after { box-sizing: inherit; }
+
+  div {
+    width:100%;
+    padding:100px;
+  }
+
+  header{
+      margin-bottom:0.5em;
+      text-align: center;
+      font-size: 6em;
+      font-family: 'Helvetica';
+      font-weight: bold
+  }
+
+  h1{
+      margin-right: 2em;
+      display: flex;
+      float: right;
+      font-size: 6em;
+      font-family: 'Helvetica';
+  }
+
+.one {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+}
+
+.two {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.three {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+</style>
+
+<script>
+    const divs = document.querySelectorAll('div')
+    const text = document.querySelector('h1')
+
+    function log(e){
+        text.innerHTML=`${this.classList.value.toUpperCase()}`
+        text.style.color=this.style.backgroundColor
+        e.stopPropagation()
+    }
+
+    divs.forEach(div => div.addEventListener('click',log))
+</script>
+</body>
+</html>
